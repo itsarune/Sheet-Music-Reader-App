@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ReadMyMusic</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="digmusic_create_project_string">Create New Project</string>
+    <string name="digmusic_import_existing">Import Existing Project</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

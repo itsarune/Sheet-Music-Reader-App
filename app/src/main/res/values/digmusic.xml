@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="get_camera_picture">Get Image from Camera</string>
+    <string name="get_gallery_picture">Get Picture from Gallery</string>
+</resources>
