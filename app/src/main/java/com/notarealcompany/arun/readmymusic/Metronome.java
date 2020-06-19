@@ -3,17 +3,52 @@ package com.notarealcompany.arun.readmymusic;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import java.util.Timer;
 
 public class Metronome extends AppCompatActivity {
+    private int tempo = 140;
+    Timer tickTimer = new Timer();
+    PlaybackTask tickTimerTask = new PlaybackTask();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metronome);
         createTabs();
+        final TextView tempoDisplay = (TextView) findViewById(R.id.bpmTextView);
+        tempoDisplay.setText(String.valueOf(tempo));
+        play();
+        ImageButton decreaseTempo = (ImageButton) findViewById(R.id.left_arrow_btn);
+        decreaseTempo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                stop();
+                setTempo(tempo-2);
+                tempoDisplay.setText(String.valueOf(tempo));
+                play();
+            }
+        });
+        ImageButton increaseTempo = (ImageButton) findViewById(R.id.right_arrow_btn);
+        increaseTempo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                stop();
+                setTempo(tempo+2);
+                tempoDisplay.setText(String.valueOf(tempo));
+                play();
+            }
+        });
     }
 
     /**
@@ -44,4 +79,21 @@ public class Metronome extends AppCompatActivity {
             }
         });
     }
+
+    public void setTempo(int newTempo) { tempo = newTempo; }
+
+    void play()
+    {
+        tickTimerTask.setup(this);
+        tickTimer.schedule(tickTimerTask, 0, 60000 / tempo);
+    }
+
+    void stop()
+    {
+        tickTimerTask.cancel();
+        tickTimer.cancel();
+        tickTimer = new Timer();
+        tickTimerTask = new PlaybackTask();
+    }
 }
+
