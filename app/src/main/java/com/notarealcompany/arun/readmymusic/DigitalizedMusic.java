@@ -1,18 +1,13 @@
 package com.notarealcompany.arun.readmymusic;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.util.Log;
-import android.view.View;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static com.notarealcompany.arun.readmymusic.Luminance.compare;
 
@@ -38,7 +33,7 @@ import static com.notarealcompany.arun.readmymusic.Luminance.compare;
  * </p>
  *
  * @author Arun B.
- * @version 2.1, 21/5/20
+ * @version 2.2, 19/6/20
  */
 public class DigitalizedMusic implements Serializable {
     private String nameOfMusic;     //project name
@@ -256,20 +251,6 @@ public class DigitalizedMusic implements Serializable {
     }
 
     /**
-     * Plays the digitalized music using Android's sound library.
-     *
-     * @param tempoInBPM    integer tempo for music playback
-     * @return              -1, if playback completed unsuccessfully. Likely, this will occur if
-     *                      there is no image connected to the sheet music object or if the image
-     *                      failed to be processed properly by <code>processMusic()</code>.
-     *                      1, if the operation was successful
-     */
-    public int playbackMusic(int tempoInBPM)
-    {
-        return -1;
-    }
-
-    /**
      * Gets the bitmap of the modified image of the sheet music used by the object.
      *
      * @return  bitmap of modified, processed sheet music
@@ -416,4 +397,19 @@ public class DigitalizedMusic implements Serializable {
         imgByteArray = (byte[]) in.readObject();
         imageOfMusic = BitmapFactory.decodeByteArray(imgByteArray,0, imgByteArray.length);
     }
+
+    /**
+     * Obtains the music notes associated with the digitalized music project.
+     *
+     *      The returned ArrayList will be of the form strings consisting of one or
+     * two characters. Letters like "C", "D", "F" represents the lower-half of the treble cleff
+     * staff while "Cu", "Du", "Gu" represent the upper-half.
+     *
+     *      Ensure that an image has been attached to this music project or else this function will
+     * return an empty list.
+     *
+     * @return  ArrayList<String>, music notes in the form of "C" or "Du" to denote their location
+     *              in the bottom- or top-half of the treble cleff staff.
+     */
+    public ArrayList<String> getNotes() { return musicNotes; }
 }

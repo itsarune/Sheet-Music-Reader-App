@@ -1,11 +1,7 @@
 package com.notarealcompany.arun.readmymusic;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -17,23 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.notarealcompany.arun.readmymusic.ui.BlankFragment;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import static android.app.Activity.RESULT_OK;
 
 /**
@@ -47,7 +31,6 @@ public class CreateMusicFragment extends Fragment {
     //Success code associated with a loaded image from the gallery
     private static int RESULT_LOAD_IMAGE = 1;
 
-    ArrayList<Integer> myArrayList = new ArrayList<>();
     //New project created
     DigitalizedMusic musicProject;
 
@@ -190,6 +173,11 @@ public class CreateMusicFragment extends Fragment {
                            .show();
                    db.insertNewProject(musicProject);
                    db.closeDatabase();
+                   PlaybackMusicProject playbackScreen = PlaybackMusicProject.newInstance(
+                           musicProject.getNotes());
+                   FragmentTransaction fm = getActivity().getSupportFragmentManager().beginTransaction();
+                   fm.replace(R.id.fragment_container, playbackScreen);
+                   fm.commit();
                } else
                {
                    Toast.makeText(getActivity(), "File with that name already exists!",

@@ -5,9 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.BlankFragment">
+    tools:context=".BlankFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <Button
         android:id="@+id/importProject"
         android:layout_width="151dp"

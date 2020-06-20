@@ -7,8 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+/**
+ * The Tuner Activity is an interface where users can tune their instrument according to their
+ * instrument's music tuning profile and receive feedback for their instrument's tuning using their
+ * phone's microphone.
+ *
+ *      This Activity is still in-progress
+ *
+ * @author Arun B.
+ * @version 1.0, 19/6/20
+ */
 public class Tuner extends AppCompatActivity {
 
+    /**
+     * Creates the layout of the Tuner Activity.
+     *
+     * @param savedInstanceState    previous state, handled by Android
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

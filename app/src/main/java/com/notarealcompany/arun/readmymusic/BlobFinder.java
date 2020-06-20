@@ -19,9 +19,14 @@ import java.util.Stack;
  * @version 1.1, 2/4/20
  */
 public class BlobFinder {
+    /* Image processed for pixels */
     private Bitmap image;
+
+    /* Image properties */
     private int height;
     private int width;
+
+    /* Tracking visited pixels */
     private boolean[][] toVisit;
 
     /**

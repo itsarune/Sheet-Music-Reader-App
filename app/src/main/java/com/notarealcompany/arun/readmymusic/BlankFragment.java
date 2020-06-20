@@ -1,4 +1,4 @@
-package com.notarealcompany.arun.readmymusic.ui;
+package com.notarealcompany.arun.readmymusic;
 
 import android.os.Bundle;
 
@@ -13,13 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.notarealcompany.arun.readmymusic.CreateMusicFragment;
-import com.notarealcompany.arun.readmymusic.MusicDatabaseManager;
-import com.notarealcompany.arun.readmymusic.R;
-import com.notarealcompany.arun.readmymusic.RecyclerListAdapter;
-import com.notarealcompany.arun.readmymusic.SortingAndSearching;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

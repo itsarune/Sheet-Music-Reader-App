@@ -11,6 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  *     It creates the SQLite Database if it doesn't exist.
  * </p>
  *
+ * @author Aruns
+ * @version 1.0, 19/5/2020
  */
 public class DigitalMusicHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
