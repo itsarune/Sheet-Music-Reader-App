@@ -130,7 +130,12 @@ public class CreateMusicFragment extends Fragment {
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
             Bitmap imageBitmap = BitmapFactory.decodeFile(picturePath);
-            musicProject.setMusicImage(imageBitmap);
+            if (musicProject.setMusicImage(imageBitmap)==1)
+                Toast.makeText(getActivity(), "Image Analysis Successful!", Toast.LENGTH_LONG)
+                        .show();
+            else
+                Toast.makeText(getActivity(), "Image Analysis Unsucessful!", Toast.LENGTH_LONG)
+                        .show();
         }
     }
 

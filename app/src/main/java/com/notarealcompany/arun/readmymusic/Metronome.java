@@ -27,8 +27,8 @@ public class Metronome extends AppCompatActivity {
     private int tempo = 140;
 
     /* timers used to control media playback */
-    Timer tickTimer = new Timer();
-    PlaybackTask tickTimerTask = new PlaybackTask();
+    private Timer tickTimer = new Timer();
+    private PlaybackTask tickTimerTask = new PlaybackTask();
 
     /**
      * Creates the layout for the metronome activity. It creates the buttons that can control the
@@ -111,7 +111,7 @@ public class Metronome extends AppCompatActivity {
     /**
      * Schedules the metronome ticks to be played at the tempo requested.
      */
-    void play()
+    private void play()
     {
         tickTimerTask.setup(this);
         tickTimer.schedule(tickTimerTask, 0, 60000 / tempo);
@@ -120,7 +120,7 @@ public class Metronome extends AppCompatActivity {
     /**
      * Stops the current scheduled metronome ticks.
      */
-    void stop()
+    private void stop()
     {
         tickTimerTask.cancel();
         tickTimer.cancel();

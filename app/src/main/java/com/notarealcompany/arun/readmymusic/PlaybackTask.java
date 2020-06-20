@@ -16,7 +16,7 @@ import java.util.TimerTask;
  */
 public class PlaybackTask extends TimerTask {
     /* Current application context */
-    Context context;
+    private Context context;
 
     /**
      * Plays the metronome tick whenever the task is schedule to run.

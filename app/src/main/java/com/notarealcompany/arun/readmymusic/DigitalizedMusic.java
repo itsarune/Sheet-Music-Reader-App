@@ -68,13 +68,16 @@ public class DigitalizedMusic implements Serializable {
      * <code>processMusic()</code> to attempt to convert the image to playable notes.
      *
      * @param image a bitmap (JPEG/PNG/GIF) of the sheet music to be analyzed
+     * @return      1, if successful
+     *              -1, if image-processing was unsuccessful. This indicates that the image wasn't
+     *                  clear enough.
      */
-    public void setMusicImage(Bitmap image) {
+    public int setMusicImage(Bitmap image) {
         imageOfMusic = image.copy(Bitmap.Config.ARGB_8888, true);
         picHeight = image.getHeight();
         picWidth = image.getWidth();
         toVisit = new boolean[picHeight][picWidth];
-        processMusic();
+        return processMusic();
     }
 
     public String getNameOfMusic() {    return nameOfMusic;    }

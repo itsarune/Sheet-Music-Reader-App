@@ -16,35 +16,34 @@ import java.util.ArrayList;
 
 /**
  * PlaybackMusicProject uses the music notes in the form of an ArrayList that is passed upon setup
- *      to play it back.
+ * to play it back.
  *
- * The notes that this fragment accepts comes in the form of String arrays and reads the first
- *      character of the array as the note to be played. Playback can be controlled using the
- *      displayed buttons.
+ *      The notes that this fragment accepts comes in the form of String arrays and reads the first
+ * character of the array as the note to be played. Playback can be controlled using the
+ * displayed buttons.
  *
- * By default, this playback routine plays audio back at 60 BPM.
+ *      By default, this playback routine plays audio back at 60 BPM.
  *
  * @author Arun B.
  * @version 1.0, 19/6/20
  */
 public class PlaybackMusicProject extends Fragment {
     /* Notes for playback */
-    ArrayList<String> playbackNotes = new ArrayList<>();
+    private ArrayList<String> playbackNotes = new ArrayList<>();
 
     /* Unique key to receive fragment arguments */
     private static final String NOTE_KEY = "playback_notes";
 
     /* Controls playback of audio */
-    boolean play = false;
-    boolean endSound = false;
+    private boolean play = false;
+    private boolean endSound = false;
 
     /* Default tempo is 60 BPM */
-    int tempoInBPM = 60;
+    private int tempoInBPM = 60;
 
     /* For controlling playback and display */
-    MediaPlayer mp;
-    View mView;
-    View inflatedView;
+    private MediaPlayer mp;
+    private View inflatedView;
 
     /**
      * Required empty public constructor.
@@ -95,7 +94,6 @@ public class PlaybackMusicProject extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = container;
         inflatedView = inflater.inflate(R.layout.fragment_playback_music_project, container,
                 false);
         Log.d("ARUNS_DEBUG", "size of input note array: " + playbackNotes.size());
